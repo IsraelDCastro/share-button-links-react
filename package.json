@@ -1,0 +1,34 @@
+{
+  "name": "share-button-links-react",
+  "version": "1.0.0",
+  "description": "Share buttons links for websites, blogs and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsraelDCastro/share-button-links-react.git"
+  },
+  "keywords": [
+    "Buttons",
+    "Share",
+    "Links",
+    "URL",
+    "JSX",
+    "React",
+    "ReactJS",
+    "Components",
+    "React components"
+  ],
+  "author": {
+    "name": "Israel De Castro Alfonso",
+    "email": "israeldalfons@gmail.com",
+    "url": "https://castrodev.netlify.app/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IsraelDCastro/share-button-links-react/issues"
+  },
+  "homepage": "https://github.com/IsraelDCastro/share-button-links-react#readme"
+}
