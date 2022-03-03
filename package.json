@@ -1,6 +1,6 @@
 {
   "name": "share-button-links-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Share buttons links for websites, blogs and more.",
   "main": "index.js",
   "scripts": {
@@ -30,5 +30,5 @@
   "bugs": {
     "url": "https://github.com/IsraelDCastro/share-button-links-react/issues"
   },
-  "homepage": "https://github.com/IsraelDCastro/share-button-links-react#readme"
+  "homepage": "https://share-button-links-react-docs.vercel.app/"
 }

@@ -22,4 +22,4 @@ All options: `ButtonCopy, ButtonEmail, ButtonFacebook, ButtonLinkedIn, ButtonPin
 
 To import the CSS or SCSS just add: `@import 'share-button-links-react/main.css';` or `@import 'share-button-links-react/main.scss';`.
 
-### [Click to see documentation](https://share-button-links.netlify.app)
+### [Click to see documentation](https://share-button-links-react-docs.vercel.app/)
