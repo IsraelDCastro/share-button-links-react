@@ -22,7 +22,7 @@ export default function ButtonPocket ({ url, title, text, isRounded, hasIcon }) 
 		<a href={ `https://getpocket.com/save?url=${url}&title=${title}` }
 		   className={ `btn-link btn-link-pocket ${isRounded ? "is-rounded" : null}` }
 		   title="Pocket"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>

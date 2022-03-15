@@ -109,6 +109,15 @@
   background-color: #075E54;
   border-color: #075E54;
 }
+.btn-link.btn-link-telegram {
+  background-color: #229ED9;
+  border-color: #229ED9;
+  color: #FFF;
+}
+.btn-link.btn-link-telegram:hover {
+  background-color: #1E8CC0;
+  border-color: #1E8CC0;
+}
 .btn-link.btn-link-pocket {
   background-color: #EE4056;
   border-color: #EE4056;
@@ -169,6 +178,15 @@
   background-color: #075E54;
   border-color: #075E54;
 }
+.btn-link-icon.btn-link-telegram-icon {
+  background-color: #229ED9;
+  border-color: #229ED9;
+  color: #FFF;
+}
+.btn-link-icon.btn-link-telegram-icon:hover {
+  background-color: #1E8CC0;
+  border-color: #1E8CC0;
+}
 .btn-link-icon.btn-link-twitter-icon {
   background-color: #00ACEE;
   border-color: #00ACEE;
@@ -213,6 +231,15 @@
 .btn-link-icon.btn-link-pinterest-icon:hover {
   background-color: #D3001F;
   border-color: #D3001F;
+}
+.btn-link-icon.btn-link-pocket-icon {
+  background-color: #EE4056;
+  border-color: #EE4056;
+  color: #FFF;
+}
+.btn-link-icon.btn-link-pocket-icon:hover {
+  background-color: #DE142D;
+  border-color: #DE142D;
 }
 .btn-link-icon.btn-link-email-icon {
   background-color: #34B7F1;

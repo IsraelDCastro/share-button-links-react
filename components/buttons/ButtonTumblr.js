@@ -24,7 +24,7 @@ export default function ButtonTumblr ({ url, title, text, content, isRounded, ha
 		<a href={ `https://www.tumblr.com/widgets/share/tool?posttype=link&title=${title}&caption=${url}&content=${content}&canonicalUrl=${url}&shareSource=tumblr_share_button` }
 		   className={ `btn-link btn-link-tumblr ${isRounded ? "is-rounded" : null}` }
 		   title="Tumblr"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>

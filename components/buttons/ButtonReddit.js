@@ -22,7 +22,7 @@ export default function ButtonReddit ({ url, title, text, isRounded, hasIcon }) 
 		<a href={ `https://reddit.com/submit/?url=${url}&title=${title}` }
 		   className={ `btn-link btn-link-reddit ${isRounded ? "is-rounded" : null}` }
 		   title="Reddit"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>

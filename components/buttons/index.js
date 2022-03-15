@@ -8,6 +8,8 @@ import ButtonReddit from './ButtonReddit';
 import ButtonTumblr from './ButtonTumblr';
 import ButtonTwitter from './ButtonTwitter';
 import ButtonWhatsapp from './ButtonWhatsapp';
+import ButtonTelegram from "./ButtonTelegram";
+
 
 export {
 	ButtonCopy,
@@ -19,5 +21,6 @@ export {
 	ButtonReddit,
 	ButtonTumblr,
 	ButtonTwitter,
-	ButtonWhatsapp
+	ButtonWhatsapp,
+	ButtonTelegram
 }

@@ -22,7 +22,7 @@ export default function ButtonFacebook ({ url, title, text, isRounded, hasIcon }
 		<a href={ `https://facebook.com/sharer/sharer.php?u=${ url }&t=${ title }&quote=` }
 		   className={ `btn-link btn-link-facebook ${isRounded ? "is-rounded" : null}` }
 		   title="Facebook"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>

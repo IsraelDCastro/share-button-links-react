@@ -20,7 +20,7 @@ export default function ButtonLinkedIn ({ url, text, isRounded, hasIcon }) {
 		<a href={ `https://www.linkedin.com/sharing/share-offsite/?url=${url}` }
 		   className={ `btn-link btn-link-twitter ${isRounded ? "is-rounded" : null}` }
 		   title="LinkedIn"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>

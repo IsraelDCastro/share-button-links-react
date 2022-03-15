@@ -26,7 +26,7 @@ export default function ButtonEmail ({ url, to, subject, content, text, isRounde
 		<a href={ `mailto:?subject=${subject}&to=${to}&body=${content}%20${url}` }
 		   className={ `btn-link btn-link-email ${isRounded ? "is-rounded" : null}` }
 		   title="Email"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>

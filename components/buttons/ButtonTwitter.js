@@ -22,7 +22,7 @@ export default function ButtonTwitter ({ url, title, text, isRounded, hasIcon })
 		<a href={ `https://twitter.com/intent/tweet/?text=${title}&url=${url}` }
 		   className={ `btn-link btn-link-twitter ${isRounded ? "is-rounded" : null}` }
 		   title="Twitter"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>

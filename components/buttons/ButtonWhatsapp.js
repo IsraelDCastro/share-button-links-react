@@ -22,7 +22,7 @@ export default function ButtonWhatsapp ({ url, message, text, isRounded, hasIcon
 		<a href={ `https://api.whatsapp.com/send?text=${message}%20${url}` }
 		   className={ `btn-link btn-link-whatsapp ${isRounded ? "is-rounded" : null}` }
 		   title="WhatsApp"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>

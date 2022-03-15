@@ -19,12 +19,12 @@ ButtonPinterest.defaultProps = {
 	isRounded: false
 }
 
-export default function ButtonPinterest ({ url, title, text, mediaUrl, description, isRounded, hasIcon }) {
+export default function ButtonPinterest ({ url, text, mediaUrl, description, isRounded, hasIcon }) {
 	return (
 		<a href={ `https://pinterest.com/pin/create/button/?url=${url}&media=${mediaUrl}&description=${description}` }
 		   className={ `btn-link btn-link-pinterest ${isRounded ? "is-rounded" : null}` }
 		   title="Pinterest"
-		   rel="nofollow noopener" target="_blank">
+		   rel="nofollow noopener noreferrer" target="_blank">
 			{ text }
 			{ hasIcon && (
 				<span>
