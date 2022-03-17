@@ -12,11 +12,17 @@ Import button components: `import { ButtonFacebook } from 'share-button-links-re
 
 All options: `ButtonCopy, ButtonEmail, ButtonFacebook, ButtonLinkedIn, ButtonPinterest, ButtonPocket, ButtonReddit, ButtonTumblr, ButtonTwitter, and ButtonWhatsapp`.
 
-[comment]: <> (### Icon Buttons)
+### Icon Buttons
 
-[comment]: <> (Import icon button components: `import { FacebookIcon } from 'share-button-links-react/components/icons';`)
+Import icon button components: `import { FacebookIcon } from 'share-button-links-react/components/icons';`
 
-[comment]: <> (All options: `FacebookIcon, WhatsappIcon, TwitterIcon, LinkedInIcon, RedditIcon, PinterestIcon, TumblrIcon, PocketIcon, EmailIcon, CopyIcon`.)
+All options: `FacebookIcon, WhatsappIcon, TelegramIcon, TwitterIcon, LinkedInIcon, RedditIcon, PinterestIcon, TumblrIcon, PocketIcon, EmailIcon, CopyIcon`.
+
+### Button Group
+
+Import button group component: `import { ButtonGroup } from 'share-button-links-react/components/button-group';`
+
+All options: `facebookIcon, whatsappIcon, telegramIcon, twitterIcon, linkedInIcon, redditIcon, pinterestIcon, tumblrIcon, pocketIcon, emailIcon, and copyIcon`.
 
 ### Import CSS/SCSS
 
