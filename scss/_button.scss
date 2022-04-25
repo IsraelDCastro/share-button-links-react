@@ -310,6 +310,16 @@
   &.is-rounded {
     border-radius: 5px;
   }
+
+  &.is-whited {
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
 }
 
 .btn-link-group {
@@ -326,6 +336,15 @@
       svg {
         width: 20px;
         height: 20px;
+      }
+      &.is-whited {
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        svg {
+          width: 26px;
+          height: 26px;
+        }
       }
     }
   }

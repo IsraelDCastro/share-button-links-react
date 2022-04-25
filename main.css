@@ -262,6 +262,15 @@
 .btn-link-icon.is-rounded {
   border-radius: 5px;
 }
+.btn-link-icon.is-whited {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+}
+.btn-link-icon.is-whited svg {
+  width: 26px;
+  height: 26px;
+}
 
 .btn-link-group {
   display: flex;
@@ -278,6 +287,15 @@
 .btn-link-group li .btn-link-icon svg {
   width: 20px;
   height: 20px;
+}
+.btn-link-group li .btn-link-icon.is-whited {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+}
+.btn-link-group li .btn-link-icon.is-whited svg {
+  width: 26px;
+  height: 26px;
 }
 
 .slide-up-fade-enter-active {
