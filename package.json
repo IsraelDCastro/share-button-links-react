@@ -2,10 +2,32 @@
   "name": "share-button-links-react",
   "version": "2.2.2",
   "description": "Share buttons links for websites, blogs and more.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/share-button-links-react.umd.js",
+  "module": "./dist/share-button-links-react.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/share-button-links-react.es.js",
+      "require": "./dist/share-button-links-react.umd.js"
+    },
+    "./dist/share-button-links-react.css": {
+      "import": "./dist/share-button-links-react.css",
+      "require": "./dist/share-button-links-react.css"
+    },
+    "./dist/share-button-links-react.scss": {
+      "import": "./dist/share-button-links-react.scss",
+      "require": "./dist/share-button-links-react.scss"
+    }
+  },
+  "types": "./dist/main.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IsraelDCastro/share-button-links-react.git"
@@ -30,5 +52,28 @@
   "bugs": {
     "url": "https://github.com/IsraelDCastro/share-button-links-react/issues"
   },
-  "homepage": "https://share-button-links-react-docs.vercel.app/"
+  "homepage": "https://share-button-links-react-docs.vercel.app/",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.5",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "bootstrap-icons": "^1.10.3",
+    "not-idea-ui": "^2.1.6",
+    "path": "^0.12.7",
+    "postcss": "^8.4.21",
+    "prop-types": "^15.8.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "sass": "^1.59.3",
+    "tailwindcss": "^3.2.7",
+    "vite": "^4.2.1",
+    "vite-plugin-dts": "^2.1.0",
+    "vite-plugin-static-copy": "^0.13.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }

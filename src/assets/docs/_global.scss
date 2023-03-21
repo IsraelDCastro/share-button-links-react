@@ -1,0 +1,114 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-slate-100 font-body text-base text-slate-800 leading-5;
+}
+
+h1 {
+  font-size: 2.75em;
+}
+
+h2 {
+  font-size: 2.25em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.625em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+h6 {
+  font-size: 1.125em;
+}
+
+p {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, btn-link, a, label{
+  @apply font-sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply leading-tight;
+}
+
+h1, h2, h3 {
+  @apply font-bold;
+}
+
+@media screen and (max-width: 767px){
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.875em;
+  }
+
+  h3 {
+    font-size: 1.75em;
+  }
+
+  h4 {
+    font-size: 1.5em;
+  }
+
+  h5 {
+    font-size: 1.375em;
+  }
+}
+
+img, svg {
+  @apply w-full h-auto;
+}
+
+.main {
+  @apply flex flex-col h-screen;
+}
+
+.wrapper {
+  @apply flex-1 relative overflow-y-auto scroll-smooth;
+}
+
+.container {
+  @apply w-11/12 mx-auto;
+}
+
+.content {
+  width: 80%;
+  @apply h-screen flex flex-col scroll-smooth overflow-y-scroll transition-all duration-500 ease-in-out;
+}
+
+.code pre[class*="language-"] {
+  @apply text-sm mt-0 rounded;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@screen lg {
+  .content {
+    @apply w-9/12;
+  }
+}

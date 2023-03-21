@@ -1,0 +1,6 @@
+.footer {
+  @apply text-center bg-white shadow-sm px-8 py-4;
+  .copyright {
+    @apply mb-0 font-semibold;
+  }
+}
