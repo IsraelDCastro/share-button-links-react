@@ -1,15 +1,16 @@
 import * as React from "react";
+import { RouterProvider } from "react-router-dom";
+import routes from "@/routes";
+import PageLayout from "@/layouts/pageLayout";
 
 export default function App() {
+  console.log(routes.routes)
   return (
-    <div className="App">
-      <main>
-        <h2>Who are we?</h2>
-        <p>
-          That feels like an existential question, don't you
-          think?
-        </p>
-      </main>
-    </div>
+    <PageLayout>
+      {routes.routes.map((item, index) => (
+        <h2>{item.path} - {item.name}</h2>
+      ))}
+      <RouterProvider router={routes} />
+    </PageLayout>
   );
 }

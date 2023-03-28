@@ -80,35 +80,13 @@ img, svg {
 }
 
 .wrapper {
-  @apply flex-1 relative overflow-y-auto scroll-smooth;
+  @apply flex flex-col min-h-screen;
+}
+
+main {
+  @apply flex flex-1 flex-col h-full;
 }
 
 .container {
-  @apply w-11/12 mx-auto;
-}
-
-.content {
-  width: 80%;
-  @apply h-screen flex flex-col scroll-smooth overflow-y-scroll transition-all duration-500 ease-in-out;
-}
-
-.code pre[class*="language-"] {
-  @apply text-sm mt-0 rounded;
-}
-
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-@screen lg {
-  .content {
-    @apply w-9/12;
-  }
+  @apply w-[90%] md:w-[95%] max-w-full mx-auto;
 }

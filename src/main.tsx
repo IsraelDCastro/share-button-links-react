@@ -4,9 +4,8 @@ import App from './App';
 import "@/assets/share-button-links-react.scss";
 import "@/assets/docs.scss";
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 )
