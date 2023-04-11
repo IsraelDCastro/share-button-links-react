@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
-ButtonCopy.propTypes = {
-  url: PropTypes.string.isRequired,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
+interface ButtonCopyIconProps extends BooleanButtonIconOpts {
+  url: string;
+}
 
-ButtonCopy.defaultProps = {
-  isRounded: false,
-  url: "#!",
-  isAllWhite: false
-};
-
-export default function ButtonCopy({ isRounded, url, isAllWhite }) {
+export default function ButtonCopy({
+  url = "#!",
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonCopyIconProps) {
   const [copied, setCopy] = useState(false);
 
   const copyUrl = () => {
@@ -27,7 +26,9 @@ export default function ButtonCopy({ isRounded, url, isAllWhite }) {
       {copied && <span className="copied-text">Copied!</span>}
       <button
         type="button"
-        className={`btn-link-icon btn-link-copy-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+        className={`btn-link-icon btn-link-copy-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+          isBordered ? "is-bordered" : null
+        } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
         title="Copy URL"
         onClick={copyUrl}
       >
