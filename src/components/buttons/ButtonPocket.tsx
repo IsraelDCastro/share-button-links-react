@@ -19,8 +19,8 @@ export default function ButtonPocket({
   return (
     <a
       href={`https://getpocket.com/save?url=${url}&title=${title}`}
-      className={`btn-link btn-link-pocket ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-pocket ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="Pocket"
       rel="nofollow noopener noreferrer"

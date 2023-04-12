@@ -21,8 +21,8 @@ export default function ButtonTumblr({
   return (
     <a
       href={`https://www.tumblr.com/widgets/share/tool?posttype=link&title=${title}&caption=${url}&content=${content}&canonicalUrl=${url}&shareSource=tumblr_share_button`}
-      className={`btn-link btn-link-tumblr ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-tumblr ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="Tumblr"
       rel="nofollow noopener noreferrer"

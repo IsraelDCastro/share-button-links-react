@@ -19,8 +19,8 @@ export default function ButtonTwitter({
   return (
     <a
       href={`https://twitter.com/intent/tweet/?text=${title}&url=${url}`}
-      className={`btn-link btn-link-twitter ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-twitter ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="Twitter"
       rel="nofollow noopener noreferrer"

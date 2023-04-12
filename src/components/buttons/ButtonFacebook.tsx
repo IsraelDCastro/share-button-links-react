@@ -19,8 +19,8 @@ export default function ButtonFacebook({
   return (
     <a
       href={`https://facebook.com/sharer/sharer.php?u=${url}&t=${title}&quote=`}
-      className={`btn-link btn-link-facebook ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-facebook ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="Facebook"
       rel="nofollow noopener noreferrer"

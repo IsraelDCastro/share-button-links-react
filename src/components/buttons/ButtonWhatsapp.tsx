@@ -19,8 +19,8 @@ export default function ButtonWhatsapp({
   return (
     <a
       href={`https://api.whatsapp.com/send?text=${message}%20${url}`}
-      className={`btn-link btn-link-whatsapp ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-whatsapp ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="WhatsApp"
       rel="nofollow noopener noreferrer"

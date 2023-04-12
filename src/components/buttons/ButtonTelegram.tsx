@@ -19,8 +19,8 @@ export default function ButtonTelegram({
   return (
     <a
       href={`https://t.me/share/url?url=${url}&text=${message}`}
-      className={`btn-link btn-link-telegram ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-telegram ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="Telegram"
       rel="nofollow noopener noreferrer"
