@@ -1,25 +1,11 @@
-import FacebookIcon from "./ButtonFacebookIcon";
-import WhatsappIcon from "./ButtonWhatsappIcon";
-import TelegramIcon from "./ButtonTelegramIcon";
-import TwitterIcon from "./ButtonTwitterIcon";
-import LinkedInIcon from "./ButtonLinkedInIcon";
-import RedditIcon from "./ButtonRedditIcon";
-import PinterestIcon from "./ButtonPinterestIcon";
-import TumblrIcon from "./ButtonTumblrIcon";
-import PocketIcon from "./ButtonPocketIcon";
-import EmailIcon from "./ButtonEmailIcon";
-import CopyIcon from "./ButtonCopyIcon";
-
-export {
-  FacebookIcon,
-  WhatsappIcon,
-  TwitterIcon,
-  LinkedInIcon,
-  TelegramIcon,
-  RedditIcon,
-  PinterestIcon,
-  TumblrIcon,
-  PocketIcon,
-  EmailIcon,
-  CopyIcon
-};
+export { default as FacebookIcon } from "./ButtonFacebookIcon";
+export { default as WhatsappIcon } from "./ButtonWhatsappIcon";
+export { default as TelegramIcon } from "./ButtonTelegramIcon";
+export { default as TwitterIcon } from "./ButtonTwitterIcon";
+export { default as LinkedInIcon } from "./ButtonLinkedInIcon";
+export { default as RedditIcon } from "./ButtonRedditIcon";
+export { default as PinterestIcon } from "./ButtonPinterestIcon";
+export { default as TumblrIcon } from "./ButtonTumblrIcon";
+export { default as PocketIcon } from "./ButtonPocketIcon";
+export { default as EmailIcon } from "./ButtonEmailIcon";
+export { default as CopyIcon } from "./ButtonCopyIcon";

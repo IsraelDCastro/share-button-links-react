@@ -1,27 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonTelegram.propTypes = {
-  url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  message: PropTypes.string,
-  hasIcon: PropTypes.bool,
-  isRounded: PropTypes.bool
-};
+interface ButtonTelegramProps extends BooleanButtonOpts {
+  url: string;
+  text: string;
+  message: string;
+}
 
-ButtonTelegram.defaultProps = {
-  url: "#!",
-  text: "Add text",
-  message: "",
-  hasIcon: false,
-  isRounded: false
-};
-
-export default function ButtonTelegram({ url, message, text, isRounded, hasIcon }) {
+export default function ButtonTelegram({
+  url,
+  message,
+  text,
+  isRounded = false,
+  hasIcon = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonTelegramProps) {
   return (
     <a
       href={`https://t.me/share/url?url=${url}&text=${message}`}
-      className={`btn-link btn-link-telegram ${isRounded ? "is-rounded" : null}`}
+      className={`btn-link btn-link-telegram ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
+        isCircled ? "is-rounded" : null
+      }`}
       title="Telegram"
       rel="nofollow noopener noreferrer"
       target="_blank"

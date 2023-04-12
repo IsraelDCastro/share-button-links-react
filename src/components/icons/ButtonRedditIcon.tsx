@@ -1,25 +1,26 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
-ButtonRedditIcon.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
+interface ButtonRedditIconProps extends BooleanButtonIconOpts {
+  url: string;
+  title?: string;
+}
 
-ButtonRedditIcon.defaultProps = {
-  url: "#!",
-  title: "",
-  isRounded: false,
-  isAllWhite: false
-};
-
-export default function ButtonRedditIcon({ url, title, isRounded, isAllWhite }) {
+export default function ButtonRedditIcon({
+  url = "#!",
+  title = "Add title",
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonRedditIconProps) {
   return (
     <a
       href={`https://reddit.com/submit/?url=${url}&title=${title}`}
-      className={`btn-link-icon btn-link-reddit-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+      className={`btn-link-icon btn-link-reddit-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+        isBordered ? "is-bordered" : null
+      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
       title="Reddit"
       rel="noreferrer nofollow noopener"
       target="_blank"

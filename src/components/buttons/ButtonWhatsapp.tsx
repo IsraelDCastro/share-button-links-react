@@ -1,27 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonWhatsapp.propTypes = {
-  url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  message: PropTypes.string,
-  hasIcon: PropTypes.bool,
-  isRounded: PropTypes.bool
-};
+interface ButtonWhatsappProps extends BooleanButtonOpts {
+  url: string;
+  text: string;
+  message?: string;
+}
 
-ButtonWhatsapp.defaultProps = {
-  url: "#!",
-  text: "Add text",
-  message: "",
-  hasIcon: false,
-  isRounded: false
-};
-
-export default function ButtonWhatsapp({ url, message, text, isRounded, hasIcon }) {
+export default function ButtonWhatsapp({
+  url = "#!",
+  message,
+  text,
+  isRounded = false,
+  hasIcon = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonWhatsappProps) {
   return (
     <a
       href={`https://api.whatsapp.com/send?text=${message}%20${url}`}
-      className={`btn-link btn-link-whatsapp ${isRounded ? "is-rounded" : null}`}
+      className={`btn-link btn-link-whatsapp ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
+        isCircled ? "is-rounded" : null
+      }`}
       title="WhatsApp"
       rel="nofollow noopener noreferrer"
       target="_blank"

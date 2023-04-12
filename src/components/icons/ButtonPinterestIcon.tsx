@@ -1,28 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
-import ButtonPinterest from "../buttons/ButtonPinterest";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
-ButtonPinterest.propTypes = {
-  url: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  mediaUrl: PropTypes.string.isRequired,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
+interface ButtonPinterestIconProps extends BooleanButtonIconOpts {
+  url: string;
+  description?: string;
+  mediaUrl?: string;
+}
 
-ButtonPinterest.defaultProps = {
-  url: "#!",
-  description: "Add description",
-  mediaUrl: "#",
-  isRounded: false,
-  isAllWhite: false
-};
-
-export default function ButtonPinterestIcon({ url, description, mediaUrl, isRounded, isAllWhite }) {
+export default function ButtonPinterestIcon({
+  url = "#!",
+  description = "Add description",
+  mediaUrl = "#!",
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonPinterestIconProps) {
   return (
     <a
       href={`https://pinterest.com/pin/create/button/?url=${url}&media=${mediaUrl}&description=${description}`}
-      className={`btn-link-icon btn-link-pinterest-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+      className={`btn-link-icon btn-link-pinterest-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+        isBordered ? "is-bordered" : null
+      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
       title="Pinterest"
       rel="noreferrer nofollow noopener"
       target="_blank"

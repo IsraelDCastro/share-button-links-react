@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonCopy.propTypes = {
-  text: PropTypes.string.isRequired,
-  hasIcon: PropTypes.bool,
-  isRounded: PropTypes.bool
-};
+interface ButtonCopyProps extends BooleanButtonOpts {
+  text: string;
+}
 
-ButtonCopy.defaultProps = {
-  // eslint-disable-next-line react/default-props-match-prop-types
-  text: "Add text",
-  hasIcon: false,
-  isRounded: false
-};
-
-export default function ButtonCopy({ text, isRounded, hasIcon }) {
+export default function ButtonCopy({
+  text = "Add text",
+  isRounded = false,
+  hasIcon = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonCopyProps) {
   const [copied, setCopy] = useState(false);
   const copyUrl = () => {
     setCopy(true);
@@ -25,7 +22,14 @@ export default function ButtonCopy({ text, isRounded, hasIcon }) {
   return (
     <div className="copy-wrap">
       {copied && <span className="copied-text">Copied!</span>}
-      <button type="button" className={`btn-link btn-link-copy ${isRounded ? "is-rounded" : null}`} title="Copy URL" onClick={copyUrl}>
+      <button
+        type="button"
+        className={`btn-link btn-link-copy ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
+          isCircled ? "is-rounded" : null
+        }`}
+        title="Copy URL"
+        onClick={copyUrl}
+      >
         {text}
         {hasIcon && (
           <span>

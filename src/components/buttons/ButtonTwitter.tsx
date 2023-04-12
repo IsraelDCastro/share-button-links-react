@@ -1,27 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonTwitter.propTypes = {
-  url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  hasIcon: PropTypes.bool,
-  isRounded: PropTypes.bool
-};
+interface ButtonTwitterProps extends BooleanButtonOpts {
+  url: string;
+  text: string;
+  title: string;
+}
 
-ButtonTwitter.defaultProps = {
-  url: "#!",
-  text: "Add text",
-  title: "Add title",
-  hasIcon: false,
-  isRounded: false
-};
-
-export default function ButtonTwitter({ url, title, text, isRounded, hasIcon }) {
+export default function ButtonTwitter({
+  url = "#!",
+  title,
+  text,
+  isRounded = false,
+  hasIcon = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonTwitterProps) {
   return (
     <a
       href={`https://twitter.com/intent/tweet/?text=${title}&url=${url}`}
-      className={`btn-link btn-link-twitter ${isRounded ? "is-rounded" : null}`}
+      className={`btn-link btn-link-twitter ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
+        isCircled ? "is-rounded" : null
+      }`}
       title="Twitter"
       rel="nofollow noopener noreferrer"
       target="_blank"

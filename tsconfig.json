@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "esnext",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -21,9 +21,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"]
     }
   },
   "include": ["src", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", ".next", "out"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

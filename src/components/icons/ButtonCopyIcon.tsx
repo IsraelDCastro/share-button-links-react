@@ -5,7 +5,7 @@ interface ButtonCopyIconProps extends BooleanButtonIconOpts {
   url: string;
 }
 
-export default function ButtonCopy({
+export default function ButtonCopyIcon({
   url = "#!",
   isRounded = false,
   isAllWhite = false,

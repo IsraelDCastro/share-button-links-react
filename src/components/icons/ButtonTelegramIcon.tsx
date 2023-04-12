@@ -1,25 +1,26 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
-ButtonTelegramIcon.propTypes = {
-  url: PropTypes.string.isRequired,
-  message: PropTypes.string,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
+interface ButtonTelegramIconProps extends BooleanButtonIconOpts {
+  url: string;
+  message?: string;
+}
 
-ButtonTelegramIcon.defaultProps = {
-  url: "#!",
-  message: "",
-  isRounded: false,
-  isAllWhite: false
-};
-
-export default function ButtonTelegramIcon({ url, message, isRounded, isAllWhite }) {
+export default function ButtonTelegramIcon({
+  url = "#!",
+  message = "Add message",
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonTelegramIconProps) {
   return (
     <a
       href={`https://t.me/share/url?url=${url}&text=${message}`}
-      className={`btn-link-icon btn-link-telegram-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+      className={`btn-link-icon btn-link-telegram-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+        isBordered ? "is-bordered" : null
+      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
       title="Telegram"
       rel="nofollow noopener noreferrer"
       target="_blank"

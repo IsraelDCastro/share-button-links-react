@@ -1,23 +1,24 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
-ButtonLinkedInIcon.propTypes = {
-  url: PropTypes.string.isRequired,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
+interface ButtonLinkedInIconProps extends BooleanButtonIconOpts {
+  url: string;
+}
 
-ButtonLinkedInIcon.defaultProps = {
-  url: "#!",
-  isRounded: false,
-  isAllWhite: false
-};
-
-export default function ButtonLinkedInIcon({ url, isRounded, isAllWhite }) {
+export default function ButtonLinkedInIcon({
+  url = "#!",
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonLinkedInIconProps) {
   return (
     <a
       href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
-      className={`btn-link-icon btn-link-linkedin-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+      className={`btn-link-icon btn-link-linkedin-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+        isBordered ? "is-bordered" : null
+      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
       title="LinkedIn"
       rel="noreferrer nofollow noopener"
       target="_blank"

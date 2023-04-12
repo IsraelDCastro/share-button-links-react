@@ -1,27 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonFacebook.propTypes = {
-  url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  hasIcon: PropTypes.bool,
-  isRounded: PropTypes.bool
-};
+interface ButtonFacebookProps extends BooleanButtonOpts {
+  url: string;
+  text: string;
+  title?: string;
+}
 
-ButtonFacebook.defaultProps = {
-  url: "#!",
-  text: "Add text",
-  title: "",
-  hasIcon: false,
-  isRounded: false
-};
-
-export default function ButtonFacebook({ url, title, text, isRounded, hasIcon }) {
+export default function ButtonFacebook({
+  url = "#!",
+  title,
+  text = "Add text",
+  isRounded = false,
+  hasIcon = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonFacebookProps) {
   return (
     <a
       href={`https://facebook.com/sharer/sharer.php?u=${url}&t=${title}&quote=`}
-      className={`btn-link btn-link-facebook ${isRounded ? "is-rounded" : null}`}
+      className={`btn-link btn-link-facebook ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
+        isCircled ? "is-rounded" : null
+      }`}
       title="Facebook"
       rel="nofollow noopener noreferrer"
       target="_blank"

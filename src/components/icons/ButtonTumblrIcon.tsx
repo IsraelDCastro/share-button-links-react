@@ -1,27 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
-ButtonTumblrIcon.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
+interface ButtonTumblrIconProps extends BooleanButtonIconOpts {
+  url: string;
+  title?: string;
+  content?: string;
+}
 
-ButtonTumblrIcon.defaultProps = {
-  url: "#!",
-  title: "Add title",
-  content: "Add your content",
-  isRounded: false,
-  isAllWhite: false
-};
-
-export default function ButtonTumblrIcon({ url, title, content, isRounded, isAllWhite }) {
+export default function ButtonTumblrIcon({
+  url = "#!",
+  title = "Add title",
+  content = "Add your content",
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonTumblrIconProps) {
   return (
     <a
       href={`https://www.tumblr.com/widgets/share/tool?posttype=link&title=${title}&caption=${url}&content=${content}&canonicalUrl=${url}&shareSource=tumblr_share_button`}
-      className={`btn-link-icon btn-link-tumblr-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+      className={`btn-link-icon btn-link-tumblr-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+        isBordered ? "is-bordered" : null
+      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
       title="Tumblr"
       rel="noreferrer nofollow noopener"
       target="_blank"

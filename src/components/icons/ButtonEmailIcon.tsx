@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
 ButtonEmailIcon.propTypes = {
   url: PropTypes.string.isRequired,
@@ -19,11 +20,30 @@ ButtonEmailIcon.defaultProps = {
   isAllWhite: false
 };
 
-export default function ButtonEmailIcon({ url, to, subject, content, isRounded, isAllWhite }) {
+interface ButtonEmailIconProps extends BooleanButtonIconOpts {
+  url: string;
+  to?: string;
+  subject: string;
+  content: string;
+}
+
+export default function ButtonEmailIcon({
+  url = "#!",
+  to,
+  subject = "Subject",
+  content = "Content",
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonEmailIconProps) {
   return (
     <a
       href={`mailto:?subject=${subject}&to=${to}&body=${content}%20${url}`}
-      className={`btn-link-icon btn-link-email-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+      className={`btn-link-icon btn-link-email-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+        isBordered ? "is-bordered" : null
+      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
       title="Email"
       rel="nofollow noopener noreferrer"
       target="_blank"

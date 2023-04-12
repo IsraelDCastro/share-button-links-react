@@ -1,25 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
-ButtonPocketIcon.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
-
-ButtonPocketIcon.defaultProps = {
-  url: "#!",
-  title: "",
-  isRounded: false,
-  isAllWhite: false
-};
-
-export default function ButtonPocketIcon({ url, title, isRounded, isAllWhite }) {
+interface ButtonPocketIconProps extends BooleanButtonIconOpts {
+  url: string;
+  title?: string;
+}
+export default function ButtonPocketIcon({
+  url = "#!",
+  title = "Add title",
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonPocketIconProps) {
   return (
     <a
       href={`https://getpocket.com/save?url=${url}&title=${title}`}
-      className={`btn-link-icon btn-link-pocket-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+      className={`btn-link-icon btn-link-pocket-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+        isBordered ? "is-bordered" : null
+      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
       title="Pocket"
       rel="noreferrer nofollow noopener"
       target="_blank"

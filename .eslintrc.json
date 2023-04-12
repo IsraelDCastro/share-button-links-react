@@ -1,0 +1,97 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "eslint-config-prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "alias": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".scss", ".css"],
+        "map": [["@", "./src"]]
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".scss"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }],
+    "import/prefer-default-export": "off",
+    "camelcase": "off",
+    "react/jsx-filename-extension": 0,
+    "no-param-reassign": 0,
+    "react/prop-types": 1,
+    "react/require-default-props": 0,
+    "react/no-array-index-key": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/default-props-match-prop-types": [0, { "allowRequiredDefaults": true }],
+    "no-use-before-define": ["error", { "functions": false, "classes": true, "variables": false }],
+    "react/forbid-prop-types": 0,
+    "import/order": 0,
+    "no-console": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/no-did-update-set-state": 0,
+    "block-scoped-var": 0,
+    "no-plusplus": 0,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never",
+        "json": "never"
+      }
+    ],
+    "no-var": 0,
+    "vars-on-top": 0,
+    "no-loop-func": 0,
+    "react/no-unescaped-entities": 0,
+    "react/button-has-type": 0,
+    "no-shadow": 0,
+    "no-unused-vars": [
+      1,
+      {
+        "ignoreRestSiblings": false
+      }
+    ],
+
+    "no-mixed-spaces-and-tabs": 0,
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "controlComponents": ["input"]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}

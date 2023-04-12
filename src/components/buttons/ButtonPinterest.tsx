@@ -1,29 +1,29 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonPinterest.propTypes = {
-  url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  mediaUrl: PropTypes.string.isRequired,
-  hasIcon: PropTypes.bool,
-  isRounded: PropTypes.bool
-};
+interface ButtonPinterestProps extends BooleanButtonOpts {
+  url: string;
+  text: string;
+  description: string;
+  mediaUrl: string;
+}
 
-ButtonPinterest.defaultProps = {
-  url: "#!",
-  text: "Add text",
-  description: "Add description",
-  mediaUrl: "#",
-  hasIcon: false,
-  isRounded: false
-};
-
-export default function ButtonPinterest({ url, text, mediaUrl, description, isRounded, hasIcon }) {
+export default function ButtonPinterest({
+  url = "#!",
+  text = "Add text",
+  mediaUrl,
+  description = "Add description",
+  isRounded = false,
+  hasIcon = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonPinterestProps) {
   return (
     <a
       href={`https://pinterest.com/pin/create/button/?url=${url}&media=${mediaUrl}&description=${description}`}
-      className={`btn-link btn-link-pinterest ${isRounded ? "is-rounded" : null}`}
+      className={`btn-link btn-link-pinterest ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
+        isCircled ? "is-rounded" : null
+      }`}
       title="Pinterest"
       rel="nofollow noopener noreferrer"
       target="_blank"

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   CopyIcon,
   EmailIcon,
@@ -13,57 +12,31 @@ import {
   TwitterIcon,
   WhatsappIcon
 } from "../icons";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonGroup.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  message: PropTypes.string,
-  content: PropTypes.string,
-  description: PropTypes.string,
-  mediaUrl: PropTypes.string,
-  to: PropTypes.string,
-  subject: PropTypes.string,
-  isRounded: PropTypes.bool,
-  facebookIcon: PropTypes.bool,
-  whatsappIcon: PropTypes.bool,
-  telegramIcon: PropTypes.bool,
-  twitterIcon: PropTypes.bool,
-  linkedInIcon: PropTypes.bool,
-  redditIcon: PropTypes.bool,
-  pinterestIcon: PropTypes.bool,
-  tumblrIcon: PropTypes.bool,
-  pocketIcon: PropTypes.bool,
-  emailIcon: PropTypes.bool,
-  copyIcon: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
+interface ButtonGroupProps extends BooleanButtonOpts {
+  url: string;
+  title?: string;
+  message?: string;
+  description?: string;
+  mediaUrl?: string;
+  content?: string;
+  to?: string;
+  subject?: string;
 
-ButtonGroup.defaultProps = {
-  // eslint-disable-next-line react/default-props-match-prop-types
-  url: "#!",
-  title: "",
-  message: "",
-  content: "",
-  description: "",
-  mediaUrl: "",
-  to: "",
-  subject: "",
-  isRounded: false,
-  facebookIcon: false,
-  whatsappIcon: false,
-  telegramIcon: false,
-  twitterIcon: false,
-  linkedInIcon: false,
-  redditIcon: false,
-  pinterestIcon: false,
-  tumblrIcon: false,
-  pocketIcon: false,
-  emailIcon: false,
-  copyIcon: false,
-  isAllWhite: false
-};
-
-
+  facebookIcon?: boolean;
+  whatsappIcon?: boolean;
+  telegramIcon?: boolean;
+  twitterIcon?: boolean;
+  linkedInIcon?: boolean;
+  redditIcon?: boolean;
+  pinterestIcon?: boolean;
+  tumblrIcon?: boolean;
+  pocketIcon?: boolean;
+  emailIcon?: boolean;
+  copyIcon?: boolean;
+  isAllWhite?: boolean;
+}
 
 export default function ButtonGroup({
   title,
@@ -73,8 +46,10 @@ export default function ButtonGroup({
   content,
   to,
   subject,
-  url,
-  isRounded,
+  url = "#!",
+  isRounded = false,
+  isBordered = false,
+  isCircled = false,
   facebookIcon,
   whatsappIcon,
   telegramIcon,
@@ -87,62 +62,115 @@ export default function ButtonGroup({
   emailIcon,
   copyIcon,
   isAllWhite
-}) {
+}: ButtonGroupProps) {
   return (
     <ul className="btn-link-group">
       {facebookIcon && (
         <li>
-          <FacebookIcon isRounded={isRounded} isAllWhite={isAllWhite} title={title} url={url} />
+          <FacebookIcon
+            isRounded={isRounded}
+            isBordered={isBordered}
+            isCircled={isCircled}
+            isAllWhite={isAllWhite}
+            title={title}
+            url={url}
+          />
         </li>
       )}
       {whatsappIcon && (
         <li>
-          <WhatsappIcon isRounded={isRounded} isAllWhite={isAllWhite} message={message} url={url} />
+          <WhatsappIcon
+            isRounded={isRounded}
+            isBordered={isBordered}
+            isCircled={isCircled}
+            isAllWhite={isAllWhite}
+            message={message}
+            url={url}
+          />
         </li>
       )}
       {telegramIcon && (
         <li>
-          <TelegramIcon isRounded={isRounded} isAllWhite={isAllWhite} message={message} url={url} />
+          <TelegramIcon
+            isRounded={isRounded}
+            isBordered={isBordered}
+            isCircled={isCircled}
+            isAllWhite={isAllWhite}
+            message={message}
+            url={url}
+          />
         </li>
       )}
       {twitterIcon && (
         <li>
-          <TwitterIcon isRounded={isRounded} isAllWhite={isAllWhite} title={title} url={url} />
+          <TwitterIcon
+            isRounded={isRounded}
+            isBordered={isBordered}
+            isCircled={isCircled}
+            isAllWhite={isAllWhite}
+            title={title}
+            url={url}
+          />
         </li>
       )}
       {linkedInIcon && (
         <li>
-          <LinkedInIcon isRounded={isRounded} isAllWhite={isAllWhite} url={url} />
+          <LinkedInIcon isRounded={isRounded} isBordered={isBordered} isCircled={isCircled} isAllWhite={isAllWhite} url={url} />
         </li>
       )}
       {redditIcon && (
         <li>
-          <RedditIcon isRounded={isRounded} isAllWhite={isAllWhite} title={title} url={url} />
+          <RedditIcon isRounded={isRounded} isBordered={isBordered} isCircled={isCircled} isAllWhite={isAllWhite} title={title} url={url} />
         </li>
       )}
       {pinterestIcon && (
         <li>
-          <PinterestIcon isRounded={isRounded} isAllWhite={isAllWhite} description={description} mediaUrl={mediaUrl} url={url} />
+          <PinterestIcon
+            isRounded={isRounded}
+            isBordered={isBordered}
+            isCircled={isCircled}
+            isAllWhite={isAllWhite}
+            description={description}
+            mediaUrl={mediaUrl}
+            url={url}
+          />
         </li>
       )}
       {tumblrIcon && (
         <li>
-          <TumblrIcon isRounded={isRounded} isAllWhite={isAllWhite} title={title} content={content} url={url} />
+          <TumblrIcon
+            isRounded={isRounded}
+            isBordered={isBordered}
+            isCircled={isCircled}
+            isAllWhite={isAllWhite}
+            title={title}
+            content={content}
+            url={url}
+          />
         </li>
       )}
       {pocketIcon && (
         <li>
-          <PocketIcon isRounded={isRounded} isAllWhite={isAllWhite} title={title} url={url} />
+          <PocketIcon isRounded={isRounded} isBordered={isBordered} isCircled={isCircled} isAllWhite={isAllWhite} title={title} url={url} />
         </li>
       )}
       {emailIcon && (
         <li>
-          <EmailIcon isRounded={isRounded} isAllWhite={isAllWhite} to={to} subject={subject} content={content} url={url} />
+          <EmailIcon
+            isRounded={isRounded}
+            isBordered={isBordered}
+            isCircled={isCircled}
+            isAllWhite={isAllWhite}
+            to={to}
+            subject={subject}
+            content={content}
+            url={url}
+          />
         </li>
       )}
       {copyIcon && (
         <li>
-          <CopyIcon isRounded={isRounded} isAllWhite={isAllWhite} url={url} />
+          <CopyIcon isRounded={isRounded} isBordered={isBordered} isCircled={isCircled} isAllWhite={isAllWhite} url={url} />
         </li>
       )}
     </ul>

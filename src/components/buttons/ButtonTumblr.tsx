@@ -1,29 +1,29 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonTumblr.propTypes = {
-  url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  hasIcon: PropTypes.bool,
-  isRounded: PropTypes.bool
-};
+interface ButtonTumblrProps extends BooleanButtonOpts {
+  url: string;
+  text: string;
+  title: string;
+  content?: string;
+}
 
-ButtonTumblr.defaultProps = {
-  url: "#!",
-  text: "Add text",
-  title: "Add title",
-  content: "Add your content",
-  hasIcon: false,
-  isRounded: false
-};
-
-export default function ButtonTumblr({ url, title, text, content, isRounded, hasIcon }) {
+export default function ButtonTumblr({
+  url = "#!",
+  title,
+  text,
+  content,
+  isRounded = false,
+  hasIcon = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonTumblrProps) {
   return (
     <a
       href={`https://www.tumblr.com/widgets/share/tool?posttype=link&title=${title}&caption=${url}&content=${content}&canonicalUrl=${url}&shareSource=tumblr_share_button`}
-      className={`btn-link btn-link-tumblr ${isRounded ? "is-rounded" : null}`}
+      className={`btn-link btn-link-tumblr ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
+        isCircled ? "is-rounded" : null
+      }`}
       title="Tumblr"
       rel="nofollow noopener noreferrer"
       target="_blank"

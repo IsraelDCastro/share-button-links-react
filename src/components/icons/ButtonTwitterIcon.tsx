@@ -1,25 +1,26 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
 
-ButtonTwitterIcon.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
+interface ButtonTwitterIconProps extends BooleanButtonIconOpts {
+  url: string;
+  title?: string;
+}
 
-ButtonTwitterIcon.defaultProps = {
-  url: "#!",
-  title: "",
-  isRounded: false,
-  isAllWhite: false
-};
-
-export default function ButtonTwitterIcon({ url, title, isRounded, isAllWhite }) {
+export default function ButtonTwitterIcon({
+  url = "#!",
+  title,
+  isRounded = false,
+  isAllWhite = false,
+  isWhited = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonTwitterIconProps) {
   return (
     <a
       href={`https://twitter.com/intent/tweet/?text=${title}&url=${url}`}
-      className={`btn-link-icon btn-link-twitter-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null}`}
+      className={`btn-link-icon btn-link-twitter-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
+        isBordered ? "is-bordered" : null
+      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
       title="Twitter"
       rel="noreferrer nofollow noopener"
       target="_blank"

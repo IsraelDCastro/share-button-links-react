@@ -1,31 +1,31 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { BooleanButtonOpts } from "@/components/shared/interfaces";
 
-ButtonEmail.propTypes = {
-  url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  to: PropTypes.string,
-  subject: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  hasIcon: PropTypes.bool,
-  isRounded: PropTypes.bool
-};
+interface ButtonEmailProps extends BooleanButtonOpts {
+  url: string;
+  text: string;
+  to?: string;
+  subject: string;
+  content: string;
+}
 
-ButtonEmail.defaultProps = {
-  url: "#!",
-  text: "Add text",
-  to: "",
-  subject: "Subject",
-  content: "Add the content",
-  hasIcon: false,
-  isRounded: false
-};
-
-export default function ButtonEmail({ url, to, subject, content, text, isRounded, hasIcon }) {
+export default function ButtonEmail({
+  url = "#!",
+  to,
+  subject = "Subject",
+  content = "Add the content",
+  text,
+  isRounded = false,
+  hasIcon = false,
+  isBordered = false,
+  isCircled = false
+}: ButtonEmailProps) {
   return (
     <a
       href={`mailto:?subject=${subject}&to=${to}&body=${content}%20${url}`}
-      className={`btn-link btn-link-email ${isRounded ? "is-rounded" : null}`}
+      className={`btn-link btn-link-email ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
+        isCircled ? "is-rounded" : null
+      }`}
       title="Email"
       rel="nofollow noopener noreferrer"
       target="_blank"
