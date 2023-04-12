@@ -1,0 +1,70 @@
+.navbar {
+  @apply flex flex-wrap justify-between items-center bg-white relative z-5 shadow-sm px-8 py-4;
+  .logo {
+    @apply w-9/12;
+    h6 { @apply text-blue-700 font-semibold; }
+  }
+  .menu {
+    @apply w-3/12 ml-auto w-fit;
+    ul {
+      @apply flex flex-wrap items-center space-x-4;
+      a {
+        @apply font-semibold hover:text-blue-500 transition-all duration-300 ease-in-out;
+      }
+    }
+  }
+  .open-menu {
+    @apply inline-block;
+  }
+}
+
+@screen lg {
+  .navbar {
+    .logo {
+      @apply w-3/12;
+    }
+    .open-menu {
+      @apply hidden;
+    }
+  }
+}
+
+.open-menu {
+  @apply cursor-pointer ml-auto mr-4 p-2 bg-primary-50 shadow rounded-md transition-all duration-400 ease-in-out;
+  span {
+    @apply block bg-primary-700 w-7 h-1 rounded-md transition-all duration-400 ease-in-out;
+    &:not(:last-child) { @apply mb-1; }
+  }
+  span:first-child, span:last-child {
+    @apply transform rotate-0;
+  }
+  &:hover, &.is-active {
+    @apply bg-primary-700;
+    span { @apply bg-white; }
+  }
+  &.is-active {
+    span:nth-child(2) { @apply opacity-0; }
+    span:first-child {
+      @apply rotate-45 translate-y-2;
+    }
+    span:last-child {
+      @apply -rotate-45 -translate-y-2;
+    }
+  }
+}
+
+@screen max-md {
+  .navbar {
+    .menu {
+      @apply w-full absolute left-0 opacity-0 -top-[200px] -z-1 bg-white shadow-base transition-all duration-300 ease-in-out;
+      ul {
+        @apply flex-col space-x-0;
+        li { @apply w-full; }
+        a {
+          @apply block text-center py-2 px-4;
+        }
+      }
+      &.is-menu-opened { @apply z-1 top-full opacity-100; }
+    }
+  }
+}

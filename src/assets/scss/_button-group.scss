@@ -1,0 +1,28 @@
+.btn-link-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 0 1rem;
+  li {
+    .btn-link-icon {
+      width: 2.125rem;
+      height: 2.125rem;
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+      &.is-whited {
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        color: #FFF;
+        svg {
+          width: 1.625rem;
+          height: 1.625rem;
+        }
+      }
+    }
+  }
+}

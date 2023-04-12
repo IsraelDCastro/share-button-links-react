@@ -1,0 +1,28 @@
+.slide-up-fade-enter-active {
+  transition: all .3s ease-out;
+}
+
+.slide-up-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-up-fade-enter-from,
+.slide-up-fade-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.copy-wrap {
+  position: relative;
+  width: fit-content;
+}
+
+.copied-text {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  z-index: 5;
+  display: block;
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
