@@ -3384,10 +3384,10 @@ vite-plugin-dts@^2.2.0:
     magic-string "^0.29.0"
     ts-morph "18.0.0"
 
-vite-plugin-static-copy@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-static-copy/-/vite-plugin-static-copy-0.13.1.tgz#0560c904f3c6b0acf756bd81d53131f4a8072d55"
-  integrity sha512-KwIcGBT1aOxSq+laK3VmSngoEa3HXWj/6ZEXdv+y59eZ7p/XSuPahoDo+CfYW22JjTdnstgeKWiX+78KNgDu6g==
+vite-plugin-static-copy@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-static-copy/-/vite-plugin-static-copy-0.15.0.tgz#803b7e049e00e11ce9201fc3d2b183558f08cf7c"
+  integrity sha512-Ww+/Ug9guV45oIfIi/lA2z8v3K+lLHV9zCJqTVO4FTdqrJoZBj68VgGBSH1fi0N4q/EHW32RsL3ympi4Wlsq5w==
   dependencies:
     chokidar "^3.5.3"
     fast-glob "^3.2.11"
