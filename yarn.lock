@@ -2498,9 +2498,9 @@ normalize-range@^0.1.2:
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
 
 not-idea-ui@^2.1.16:
-  version "2.1.19"
-  resolved "https://registry.yarnpkg.com/not-idea-ui/-/not-idea-ui-2.1.19.tgz#f5dd4075ce861e5f064d9feae84d1fabfdbcf8b6"
-  integrity sha512-fXIRkMuwD+IG/7qE7N/wAx6knEavYsOvR1SeVPuT35pQr0+9DRCfqClxkmxw7zrI/EaL6rkauNZUEuNYXQ1+3g==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/not-idea-ui/-/not-idea-ui-2.2.0.tgz#f741d470a45ea0fe67e403fa8622377a3d4cc842"
+  integrity sha512-HgV4kc6ycG6CwPkmrLqVI3rZw4fvnmvigF7PA3HhU+CNetr/PmqLzDVosJ3XPTRYzPk6tlmRm0jiyxOz1kxFpw==
   dependencies:
     autoprefixer "^10.4.7"
     postcss "^8.4.14"
