@@ -49,7 +49,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, "src/components/main.ts")
       },
-      plugins: [ terser()],
+      plugins: [terser()],
       external: ["react"],
       output: {
         exports: "named",
