@@ -16,8 +16,8 @@ export default function ButtonLinkedIn({
   return (
     <a
       href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
-      className={`btn-link btn-link-linkedin ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-linkedin ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="LinkedIn"
       rel="nofollow noopener noreferrer"

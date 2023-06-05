@@ -24,8 +24,8 @@ export default function ButtonCopy({
       {copied && <span className="copied-text">Copied!</span>}
       <button
         type="button"
-        className={`btn-link btn-link-copy ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-          isCircled ? "is-rounded" : null
+        className={`btn-link btn-link-copy ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+          isCircled ? "is-circled" : null
         }`}
         title="Copy URL"
         onClick={copyUrl}

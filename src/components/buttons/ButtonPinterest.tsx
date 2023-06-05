@@ -21,8 +21,8 @@ export default function ButtonPinterest({
   return (
     <a
       href={`https://pinterest.com/pin/create/button/?url=${url}&media=${mediaUrl}&description=${description}`}
-      className={`btn-link btn-link-pinterest ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-pinterest ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="Pinterest"
       rel="nofollow noopener noreferrer"

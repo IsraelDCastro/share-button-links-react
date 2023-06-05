@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonFacebook, ButtonWhatsapp } from "@/components/main";
+import { ButtonFacebook, ButtonWhatsapp, FacebookIcon } from "@/components/main";
 
 export default function Buttons() {
   return (
@@ -28,8 +28,11 @@ export default function Buttons() {
             </a>
           </p>
         </div>
-        <ButtonFacebook text="hola" />
-        <ButtonWhatsapp />
+        <ButtonFacebook url="hola" isBordered text="hola" />
+        <ButtonWhatsapp text="klk" url="hola" isCircled isBordered />
+        <div className="p-20 bg-black">
+          <FacebookIcon url="hp;a" isBordered isWhited />
+        </div>
         {/* <Telegram /> */}
         {/* <Twitter /> */}
         {/* <LinkedIn /> */}

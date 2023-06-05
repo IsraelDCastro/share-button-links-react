@@ -19,8 +19,8 @@ export default function ButtonReddit({
   return (
     <a
       href={`https://reddit.com/submit/?url=${url}&title=${title}`}
-      className={`btn-link btn-link-reddit ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-reddit ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="Reddit"
       rel="nofollow noopener noreferrer"

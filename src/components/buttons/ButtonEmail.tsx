@@ -23,8 +23,8 @@ export default function ButtonEmail({
   return (
     <a
       href={`mailto:?subject=${subject}&to=${to}&body=${content}%20${url}`}
-      className={`btn-link btn-link-email ${isRounded ? "is-rounded" : null} ${isBordered ? "is-rounded" : null} ${
-        isCircled ? "is-rounded" : null
+      className={`btn-link btn-link-email ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
+        isCircled ? "is-circled" : null
       }`}
       title="Email"
       rel="nofollow noopener noreferrer"
