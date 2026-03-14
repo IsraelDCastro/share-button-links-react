@@ -1,30 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
-
-ButtonEmailIcon.propTypes = {
-  url: PropTypes.string.isRequired,
-  to: PropTypes.string,
-  subject: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  isRounded: PropTypes.bool,
-  isAllWhite: PropTypes.bool
-};
-
-ButtonEmailIcon.defaultProps = {
-  url: "#!",
-  to: "",
-  subject: "Subject",
-  content: "Add the content",
-  isRounded: false,
-  isAllWhite: false
-};
+import { buildShareUrl, getIconButtonClassNames, joinTextParts, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonEmailIconProps extends BooleanButtonIconOpts {
   url: string;
   to?: string;
-  subject: string;
-  content: string;
+  subject?: string;
+  content?: string;
 }
 
 export default function ButtonEmailIcon({
@@ -36,20 +17,33 @@ export default function ButtonEmailIcon({
   isAllWhite = false,
   isWhited = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonEmailIconProps) {
+  const shareUrl = resolveShareUrl(url, { validateUrl, fallbackUrl });
+  const href = buildShareUrl("mailto:", { subject, to, body: joinTextParts(content, shareUrl) });
+
   return (
     <a
-      href={`mailto:?subject=${subject}&to=${to}&body=${content}%20${url}`}
-      className={`btn-link-icon btn-link-email-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
-        isBordered ? "is-bordered" : null
-      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
+      href={href}
+      className={getIconButtonClassNames("btn-link-icon btn-link-email-icon", {
+        isRounded,
+        isAllWhite,
+        isWhited,
+        isBordered,
+        isCircled,
+        colorVariant
+      })}
       title="Email"
+      aria-label="Share by email"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <span>
         <svg
+          {...svgA11yProps}
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"

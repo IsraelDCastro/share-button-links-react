@@ -1,5 +1,5 @@
-import React from "react";
 import { BooleanButtonOpts } from "@/components/shared/interfaces";
+import { buildShareUrl, getButtonClassNames, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonTumblrProps extends BooleanButtonOpts {
   url: string;
@@ -16,15 +16,27 @@ export default function ButtonTumblr({
   isRounded = false,
   hasIcon = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonTumblrProps) {
+  const shareUrl = resolveShareUrl(url, { validateUrl, fallbackUrl });
+  const href = buildShareUrl("https://www.tumblr.com/widgets/share/tool", {
+    posttype: "link",
+    title,
+    caption: shareUrl,
+    content,
+    canonicalUrl: shareUrl,
+    shareSource: "tumblr_share_button"
+  });
+
   return (
     <a
-      href={`https://www.tumblr.com/widgets/share/tool?posttype=link&title=${title}&caption=${url}&content=${content}&canonicalUrl=${url}&shareSource=tumblr_share_button`}
-      className={`btn-link btn-link-tumblr ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
-        isCircled ? "is-circled" : null
-      }`}
+      href={href}
+      className={getButtonClassNames("btn-link btn-link-tumblr", { isRounded, isBordered, isCircled, colorVariant })}
       title="Tumblr"
+      aria-label="Share on Tumblr"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -32,12 +44,10 @@ export default function ButtonTumblr({
       {hasIcon && (
         <span>
           <svg
-            aria-hidden="true"
-            focusable="false"
+            {...svgA11yProps}
             data-prefix="fab"
             data-icon="tumblr-square"
             className="svg-inline--fa fa-tumblr-square fa-w-14"
-            role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
           >

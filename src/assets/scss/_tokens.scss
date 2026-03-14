@@ -1,0 +1,23 @@
+@use "sass:color";
+
+$button-radius-soft: 0.95rem;
+$button-radius-rounded: 1.2rem;
+$button-radius-circled: 999px;
+$icon-radius-circled: 50%;
+$button-icon-gap: 0.55rem;
+$button-transition:
+  transform 180ms ease,
+  background-color 180ms ease,
+  border-color 180ms ease,
+  box-shadow 220ms ease,
+  color 180ms ease;
+$button-shadow: 0 18px 38px -24px color.change(#0f172a, $alpha: 0.34);
+$button-shadow-hover: 0 24px 42px -24px color.change(#0f172a, $alpha: 0.42);
+$button-focus-outline: 3px solid color.change(#0f172a, $alpha: 0.18);
+$button-focus-ring: 0 0 0 5px color.change(#0f172a, $alpha: 0.08);
+$button-focus-offset: 2px;
+$neutral-surface: #E2E8F0;
+$neutral-surface-hover: #CBD5E1;
+$neutral-surface-soft: #F8FAFC;
+$neutral-border: #CBD5E1;
+$neutral-text: #1E293B;

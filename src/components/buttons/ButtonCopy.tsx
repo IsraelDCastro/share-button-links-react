@@ -1,39 +1,72 @@
-import React, { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BooleanButtonOpts } from "@/components/shared/interfaces";
+import { copyTextToClipboard, getButtonClassNames, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonCopyProps extends BooleanButtonOpts {
   text: string;
+  url?: string;
+  copiedLabel?: string;
 }
 
 export default function ButtonCopy({
   text = "Add text",
+  url,
+  copiedLabel = "Copied!",
   isRounded = false,
   hasIcon = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonCopyProps) {
   const [copied, setCopy] = useState(false);
-  const copyUrl = () => {
+  const timeoutRef = useRef<number | undefined>(undefined);
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(timeoutRef.current);
+    },
+    []
+  );
+
+  const copyUrl = async () => {
+    const valueToCopy = url
+      ? resolveShareUrl(url, { validateUrl, fallbackUrl })
+      : resolveShareUrl(typeof window !== "undefined" ? window.location.href : "", {
+          validateUrl,
+          fallbackUrl
+        });
+    const didCopy = await copyTextToClipboard(valueToCopy);
+
+    if (!didCopy) {
+      return;
+    }
+
     setCopy(true);
-    navigator.clipboard.writeText(window.location.href);
-    setTimeout(() => setCopy(false), 1500);
+    window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => setCopy(false), 1500);
   };
 
   return (
     <div className="copy-wrap">
-      {copied && <span className="copied-text">Copied!</span>}
+      {copied && (
+        <span className="copied-text" role="status" aria-live="polite">
+          {copiedLabel}
+        </span>
+      )}
       <button
         type="button"
-        className={`btn-link btn-link-copy ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
-          isCircled ? "is-circled" : null
-        }`}
+        className={getButtonClassNames("btn-link btn-link-copy", { isRounded, isBordered, isCircled, colorVariant })}
         title="Copy URL"
+        aria-label="Copy URL to clipboard"
         onClick={copyUrl}
       >
         {text}
         {hasIcon && (
           <span>
             <svg
+              {...svgA11yProps}
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"

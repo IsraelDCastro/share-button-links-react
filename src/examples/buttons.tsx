@@ -1,4 +1,3 @@
-import React from "react";
 import { ButtonFacebook, ButtonWhatsapp, FacebookIcon } from "@/components/main";
 
 export default function Buttons() {

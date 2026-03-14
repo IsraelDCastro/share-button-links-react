@@ -1,5 +1,5 @@
-import React from "react";
 import { BooleanButtonOpts } from "@/components/shared/interfaces";
+import { buildShareUrl, getButtonClassNames, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonPocketProps extends BooleanButtonOpts {
   url: string;
@@ -14,15 +14,20 @@ export default function ButtonPocket({
   isRounded = false,
   hasIcon = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonPocketProps) {
+  const shareUrl = resolveShareUrl(url, { validateUrl, fallbackUrl });
+  const href = buildShareUrl("https://getpocket.com/save", { url: shareUrl, title });
+
   return (
     <a
-      href={`https://getpocket.com/save?url=${url}&title=${title}`}
-      className={`btn-link btn-link-pocket ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
-        isCircled ? "is-circled" : null
-      }`}
+      href={href}
+      className={getButtonClassNames("btn-link btn-link-pocket", { isRounded, isBordered, isCircled, colorVariant })}
       title="Pocket"
+      aria-label="Save to Pocket"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -30,12 +35,10 @@ export default function ButtonPocket({
       {hasIcon && (
         <span>
           <svg
-            aria-hidden="true"
-            focusable="false"
+            {...svgA11yProps}
             data-prefix="fab"
             data-icon="get-pocket"
             className="svg-inline--fa fa-get-pocket fa-w-14"
-            role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
           >

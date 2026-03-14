@@ -1,11 +1,10 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import "@/assets/share-button-links-react.scss";
-import "@/assets/docs.scss";
+import App from "../playground/App";
+import "../playground/styles.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );

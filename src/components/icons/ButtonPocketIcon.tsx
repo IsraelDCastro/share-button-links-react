@@ -1,5 +1,5 @@
-import React from "react";
 import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
+import { buildShareUrl, getIconButtonClassNames, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonPocketIconProps extends BooleanButtonIconOpts {
   url: string;
@@ -12,25 +12,35 @@ export default function ButtonPocketIcon({
   isAllWhite = false,
   isWhited = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonPocketIconProps) {
+  const shareUrl = resolveShareUrl(url, { validateUrl, fallbackUrl });
+  const href = buildShareUrl("https://getpocket.com/save", { url: shareUrl, title });
+
   return (
     <a
-      href={`https://getpocket.com/save?url=${url}&title=${title}`}
-      className={`btn-link-icon btn-link-pocket-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
-        isBordered ? "is-bordered" : null
-      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
+      href={href}
+      className={getIconButtonClassNames("btn-link-icon btn-link-pocket-icon", {
+        isRounded,
+        isAllWhite,
+        isWhited,
+        isBordered,
+        isCircled,
+        colorVariant
+      })}
       title="Pocket"
+      aria-label="Save to Pocket"
       rel="noreferrer nofollow noopener"
       target="_blank"
     >
       <svg
-        aria-hidden="true"
-        focusable="false"
+        {...svgA11yProps}
         data-prefix="fab"
         data-icon="get-pocket"
         className="svg-inline--fa fa-get-pocket fa-w-14"
-        role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
       >

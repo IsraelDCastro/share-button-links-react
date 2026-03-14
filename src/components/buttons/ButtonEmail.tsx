@@ -1,12 +1,12 @@
-import React from "react";
 import { BooleanButtonOpts } from "@/components/shared/interfaces";
+import { buildShareUrl, getButtonClassNames, joinTextParts, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonEmailProps extends BooleanButtonOpts {
   url: string;
   text: string;
   to?: string;
-  subject: string;
-  content: string;
+  subject?: string;
+  content?: string;
 }
 
 export default function ButtonEmail({
@@ -18,15 +18,24 @@ export default function ButtonEmail({
   isRounded = false,
   hasIcon = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonEmailProps) {
+  const shareUrl = resolveShareUrl(url, { validateUrl, fallbackUrl });
+  const href = buildShareUrl("mailto:", {
+    subject,
+    to,
+    body: joinTextParts(content, shareUrl)
+  });
+
   return (
     <a
-      href={`mailto:?subject=${subject}&to=${to}&body=${content}%20${url}`}
-      className={`btn-link btn-link-email ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
-        isCircled ? "is-circled" : null
-      }`}
+      href={href}
+      className={getButtonClassNames("btn-link btn-link-email", { isRounded, isBordered, isCircled, colorVariant })}
       title="Email"
+      aria-label="Share by email"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -34,6 +43,7 @@ export default function ButtonEmail({
       {hasIcon && (
         <span>
           <svg
+            {...svgA11yProps}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"

@@ -1,39 +1,70 @@
-import React, { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
+import { copyTextToClipboard, getIconButtonClassNames, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonCopyIconProps extends BooleanButtonIconOpts {
   url: string;
+  copiedLabel?: string;
 }
 
 export default function ButtonCopyIcon({
   url = "#!",
+  copiedLabel = "Copied!",
   isRounded = false,
   isAllWhite = false,
   isWhited = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonCopyIconProps) {
   const [copied, setCopy] = useState(false);
+  const timeoutRef = useRef<number | undefined>(undefined);
 
-  const copyUrl = () => {
+  useEffect(
+    () => () => {
+      window.clearTimeout(timeoutRef.current);
+    },
+    []
+  );
+
+  const copyUrl = async () => {
+    const didCopy = await copyTextToClipboard(resolveShareUrl(url, { validateUrl, fallbackUrl }));
+
+    if (!didCopy) {
+      return;
+    }
+
     setCopy(true);
-    navigator.clipboard.writeText(url);
-    setTimeout(() => setCopy(false), 1500);
+    window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => setCopy(false), 1500);
   };
 
   return (
     <div className="copy-wrap">
-      {copied && <span className="copied-text">Copied!</span>}
+      {copied && (
+        <span className="copied-text" role="status" aria-live="polite">
+          {copiedLabel}
+        </span>
+      )}
       <button
         type="button"
-        className={`btn-link-icon btn-link-copy-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
-          isBordered ? "is-bordered" : null
-        } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
+        className={getIconButtonClassNames("btn-link-icon btn-link-copy-icon", {
+          isRounded,
+          isAllWhite,
+          isWhited,
+          isBordered,
+          isCircled,
+          colorVariant
+        })}
         title="Copy URL"
+        aria-label="Copy URL to clipboard"
         onClick={copyUrl}
       >
         <span>
           <svg
+            {...svgA11yProps}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"

@@ -1,5 +1,5 @@
-import React from "react";
 import { BooleanButtonOpts } from "@/components/shared/interfaces";
+import { buildShareUrl, getButtonClassNames, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonPinterestProps extends BooleanButtonOpts {
   url: string;
@@ -16,15 +16,25 @@ export default function ButtonPinterest({
   isRounded = false,
   hasIcon = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonPinterestProps) {
+  const shareUrl = resolveShareUrl(url, { validateUrl, fallbackUrl });
+  const safeMediaUrl = resolveShareUrl(mediaUrl, { validateUrl, fallbackUrl: shareUrl });
+  const href = buildShareUrl("https://pinterest.com/pin/create/button/", {
+    url: shareUrl,
+    media: safeMediaUrl,
+    description
+  });
+
   return (
     <a
-      href={`https://pinterest.com/pin/create/button/?url=${url}&media=${mediaUrl}&description=${description}`}
-      className={`btn-link btn-link-pinterest ${isRounded ? "is-rounded" : null} ${isBordered ? "is-bordered" : null} ${
-        isCircled ? "is-circled" : null
-      }`}
+      href={href}
+      className={getButtonClassNames("btn-link btn-link-pinterest", { isRounded, isBordered, isCircled, colorVariant })}
       title="Pinterest"
+      aria-label="Share on Pinterest"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -32,6 +42,7 @@ export default function ButtonPinterest({
       {hasIcon && (
         <span>
           <svg
+            {...svgA11yProps}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "dist/share-button-links-react.es.js": {
+      "maxRawKb": 65,
+      "maxGzipKb": 14
+    },
+    "dist/share-button-links-react.umd.js": {
+      "maxRawKb": 60,
+      "maxGzipKb": 14
+    },
+    "dist/share-button-links-react.css": {
+      "maxRawKb": 11,
+      "maxGzipKb": 2
+    }
+  }
+}

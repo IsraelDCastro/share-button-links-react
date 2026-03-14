@@ -14,10 +14,10 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "declarationDir": "dist",
-    "baseUrl": ".",
     "useDefineForClassFields": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
+    "types": ["react", "react-dom"],
     "isolatedModules": true,
     "noEmit": true,
     "paths": {
@@ -26,6 +26,6 @@
     }
   },
   "include": ["src", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", ".next", "out"],
+  "exclude": ["node_modules", ".next", "out", "playground", "src/components/__tests__", "src/test"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

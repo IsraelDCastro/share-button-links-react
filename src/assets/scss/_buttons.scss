@@ -1,253 +1,244 @@
+@use "sass:color";
+@use "./variables" as *;
+@use "./tokens" as *;
+
+@mixin elevated-button($base, $hover, $foreground: #FFF) {
+  background: $base;
+  border-color: $base;
+  color: $foreground;
+
+  &:hover {
+    background: $hover;
+    border-color: $hover;
+  }
+
+  &.is-bordered {
+    background: transparent;
+    border-color: $base;
+    color: $base;
+
+    &:hover {
+      background: color.change($base, $alpha: 0.08);
+      border-color: $hover;
+      color: $hover;
+    }
+  }
+
+  &.is-flat {
+    background: color.change($base, $alpha: 0.12);
+    border-color: color.change($base, $alpha: 0.16);
+    color: $base;
+
+    &:hover {
+      background: color.change($hover, $alpha: 0.16);
+      border-color: color.change($hover, $alpha: 0.22);
+      color: $hover;
+    }
+
+    &.is-bordered {
+      background: transparent;
+      border-color: $base;
+      color: $base;
+
+      &:hover {
+        background: color.change($hover, $alpha: 0.1);
+        border-color: color.change($hover, $alpha: 0.28);
+        color: $hover;
+      }
+    }
+  }
+
+  &.is-neutral {
+    background: $neutral-surface-soft;
+    border-color: $neutral-border;
+    color: $neutral-text;
+
+    &:hover {
+      background: $neutral-surface;
+      border-color: $neutral-surface-hover;
+      color: $neutral-text;
+    }
+
+    &.is-bordered {
+      background: transparent;
+      border-color: $neutral-border;
+      color: $neutral-text;
+
+      &:hover {
+        background: $neutral-surface;
+        border-color: $neutral-surface-hover;
+        color: $neutral-text;
+      }
+    }
+  }
+}
+
+@mixin soft-button($base, $hover) {
+  background: color.change($base, $alpha: 0.08);
+  border-color: color.change($base, $alpha: 0.22);
+  color: $base;
+
+  &:hover {
+    background: color.change($hover, $alpha: 0.12);
+    border-color: color.change($hover, $alpha: 0.28);
+    color: $hover;
+  }
+
+  &.is-bordered {
+    background: transparent;
+    border-color: color.change($base, $alpha: 0.24);
+    color: $base;
+
+    &:hover {
+      background: color.change($hover, $alpha: 0.08);
+      border-color: color.change($hover, $alpha: 0.28);
+      color: $hover;
+    }
+  }
+
+  &.is-flat {
+    background: color.change($base, $alpha: 0.12);
+    border-color: color.change($base, $alpha: 0.16);
+    color: $base;
+
+    &:hover {
+      background: color.change($hover, $alpha: 0.16);
+      border-color: color.change($hover, $alpha: 0.22);
+      color: $hover;
+    }
+
+    &.is-bordered {
+      background: transparent;
+      border-color: color.change($base, $alpha: 0.24);
+      color: $base;
+
+      &:hover {
+        background: color.change($hover, $alpha: 0.1);
+        border-color: color.change($hover, $alpha: 0.28);
+        color: $hover;
+      }
+    }
+  }
+
+  &.is-neutral {
+    background: $neutral-surface-soft;
+    border-color: $neutral-border;
+    color: $neutral-text;
+
+    &:hover {
+      background: $neutral-surface;
+      border-color: $neutral-surface-hover;
+      color: $neutral-text;
+    }
+
+    &.is-bordered {
+      background: transparent;
+      border-color: $neutral-border;
+      color: $neutral-text;
+      box-shadow: none;
+
+      &:hover {
+        background: $neutral-surface-soft;
+        border-color: $neutral-surface-hover;
+        color: $neutral-text;
+      }
+    }
+  }
+}
+
 .btn-link {
-  display: inline-block;
-  padding: 0.5rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $button-icon-gap;
+  min-height: 3rem;
+  padding: 0.78rem 1.25rem;
   border: 1px solid #DDD;
   background-color: #DDD;
   text-decoration: none;
   color: #222;
-  transition: all .4s ease-in-out;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  border-radius: $button-radius-soft;
 
-  &:hover {
-    background-color: #CCC;
+  &:hover { border-color: #94A3B8; }
+
+  &:focus-visible {
+    outline: $button-focus-outline;
+    outline-offset: $button-focus-offset;
+    box-shadow: $button-focus-ring;
   }
+
   span {
-    vertical-align: text-top;
-    margin-left: 0.3125rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &.btn-link-facebook {
-    background-color: $c-facebook-100;
-    border-color: $c-facebook-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-facebook-200;
-      border-color: $c-facebook-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-facebook-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-facebook-200;
-      }
-    }
+    @include elevated-button($c-facebook-100, $c-facebook-200);
   }
 
   &.btn-link-email {
-    background-color: #FFF;
-    border-color: $c-email-100;
-
-    &:hover {
-      background-color: rgba($c-email-100, .04);
-      border-color: $c-email-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-email-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-email-200;
-      }
-    }
+    @include soft-button($c-email-100, $c-email-200);
   }
 
   &.btn-link-twitter {
-    background-color: $c-twitter-100;
-    border-color: $c-twitter-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-twitter-200;
-      border-color: $c-twitter-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-twitter-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-twitter-200;
-      }
-    }
+    @include elevated-button($c-twitter-100, $c-twitter-200);
   }
 
   &.btn-link-tumblr {
-    background-color: $c-tumblr-100;
-    border-color: $c-tumblr-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-tumblr-200;
-      border-color: $c-tumblr-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-tumblr-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-tumblr-200;
-      }
-    }
+    @include elevated-button($c-tumblr-100, $c-tumblr-200);
   }
 
   &.btn-link-pinterest {
-    background-color: $c-pinterest-100;
-    border-color: $c-pinterest-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-pinterest-200;
-      border-color: $c-pinterest-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-pinterest-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-pinterest-200;
-      }
-    }
+    @include elevated-button($c-pinterest-100, $c-pinterest-200);
   }
 
   &.btn-link-linkedin {
-    background-color: $c-linkedin-100;
-    border-color: $c-linkedin-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-linkedin-200;
-      border-color: $c-linkedin-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-linkedin-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-linkedin-200;
-      }
-    }
+    @include elevated-button($c-linkedin-100, $c-linkedin-200);
   }
 
   &.btn-link-reddit {
-    background-color: $c-reddit-100;
-    border-color: $c-reddit-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-reddit-200;
-      border-color: $c-reddit-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-reddit-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-reddit-200;
-      }
-    }
+    @include elevated-button($c-reddit-100, $c-reddit-200);
   }
 
   &.btn-link-whatsapp {
-    background-color: $c-whatsapp-100;
-    border-color: $c-whatsapp-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-whatsapp-200;
-      border-color: $c-whatsapp-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-whatsapp-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-whatsapp-200;
-      }
-    }
+    @include elevated-button($c-whatsapp-100, $c-whatsapp-200);
   }
 
   &.btn-link-telegram {
-    background-color: $c-telegram-100;
-    border-color: $c-telegram-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-telegram-200;
-      border-color: $c-telegram-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-telegram-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-telegram-200;
-      }
-    }
+    @include elevated-button($c-telegram-100, $c-telegram-200);
   }
 
   &.btn-link-pocket {
-    background-color: $c-pocket-100;
-    border-color: $c-pocket-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-pocket-200;
-      border-color: $c-pocket-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-pocket-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-pocket-200;
-      }
-    }
+    @include elevated-button($c-pocket-100, $c-pocket-200);
   }
 
   &.btn-link-copy {
-    background-color: $c-copy-100;
-    border-color: $c-copy-100;
-    color: #FFF;
-
-    &:hover {
-      background-color: $c-copy-200;
-      border-color: $c-copy-200;
-    }
-
-    &.is-bordered {
-      background-color: transparent;
-      color: $c-copy-100;
-      &:hover {
-        color: #FFF;
-        background-color: $c-copy-200;
-      }
-    }
+    @include elevated-button($c-copy-100, $c-copy-200);
   }
 
   &.is-rounded {
-    border-radius: 0.3125rem;
+    border-radius: $button-radius-rounded;
   }
 
   &.is-circled {
-    border-radius: 1.25rem;
+    border-radius: $button-radius-circled;
   }
 
   svg {
     display: inline-block;
     width: 1rem;
     height: 1rem;
+    flex-shrink: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
-
-
-

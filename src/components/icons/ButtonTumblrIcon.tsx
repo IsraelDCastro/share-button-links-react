@@ -1,5 +1,5 @@
-import React from "react";
 import { BooleanButtonIconOpts } from "@/components/shared/interfaces";
+import { buildShareUrl, getIconButtonClassNames, resolveShareUrl, svgA11yProps } from "@/components/shared/utils";
 
 interface ButtonTumblrIconProps extends BooleanButtonIconOpts {
   url: string;
@@ -15,25 +15,42 @@ export default function ButtonTumblrIcon({
   isAllWhite = false,
   isWhited = false,
   isBordered = false,
-  isCircled = false
+  isCircled = false,
+  colorVariant = "brand",
+  validateUrl = false,
+  fallbackUrl
 }: ButtonTumblrIconProps) {
+  const shareUrl = resolveShareUrl(url, { validateUrl, fallbackUrl });
+  const href = buildShareUrl("https://www.tumblr.com/widgets/share/tool", {
+    posttype: "link",
+    title,
+    caption: shareUrl,
+    content,
+    canonicalUrl: shareUrl,
+    shareSource: "tumblr_share_button"
+  });
+
   return (
     <a
-      href={`https://www.tumblr.com/widgets/share/tool?posttype=link&title=${title}&caption=${url}&content=${content}&canonicalUrl=${url}&shareSource=tumblr_share_button`}
-      className={`btn-link-icon btn-link-tumblr-icon ${isRounded ? "is-rounded" : null} ${isAllWhite ? "is-whited" : null} ${
-        isBordered ? "is-bordered" : null
-      } ${isCircled ? "is-circled" : null} ${isWhited ? "is-whited" : null}`}
+      href={href}
+      className={getIconButtonClassNames("btn-link-icon btn-link-tumblr-icon", {
+        isRounded,
+        isAllWhite,
+        isWhited,
+        isBordered,
+        isCircled,
+        colorVariant
+      })}
       title="Tumblr"
+      aria-label="Share on Tumblr"
       rel="noreferrer nofollow noopener"
       target="_blank"
     >
       <svg
-        aria-hidden="true"
-        focusable="false"
+        {...svgA11yProps}
         data-prefix="fab"
         data-icon="tumblr-square"
         className="svg-inline--fa fa-tumblr-square fa-w-14"
-        role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
       >

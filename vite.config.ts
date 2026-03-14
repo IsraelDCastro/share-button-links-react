@@ -1,29 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import * as path from "path";
-import typescript2 from "rollup-plugin-typescript2";
 import dts from "vite-plugin-dts";
 import { viteStaticCopy } from "vite-plugin-static-copy";
-import { terser } from "rollup-plugin-terser";
 
 export default defineConfig({
   plugins: [
     react(),
     dts({
-      insertTypesEntry: true
-    }),
-    typescript2({
-      check: false,
-      include: ["src/components/**/*.tsx"],
-      tsconfigOverride: {
-        compilerOptions: {
-          outDir: "dist",
-          sourceMap: true,
-          declaration: true,
-          declarationMap: true
-        }
-      },
-      exclude: ["vite.config.ts"]
+      insertTypesEntry: true,
+      tsConfigFilePath: "./tsconfig.json"
     }),
     viteStaticCopy({
       targets: [
@@ -46,18 +32,14 @@ export default defineConfig({
     },
     cssMinify: true,
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, "src/components/main.ts")
-      },
-      plugins: [terser()],
-      external: ["react"],
+      external: ["react", "react-dom"],
       output: {
         exports: "named",
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === "main.css") {
+          if (assetInfo.name?.endsWith(".css")) {
             return "share-button-links-react.css";
           }
-          return assetInfo.name;
+          return assetInfo.name || "asset.[ext]";
         },
         globals: {
           "react": "React",
