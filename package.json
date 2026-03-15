@@ -23,16 +23,19 @@
     "**/*.scss"
   ],
   "files": [
-    "dist",
-    "main.d.ts"
+    "dist"
   ],
   "main": "./dist/share-button-links-react.umd.js",
   "module": "./dist/share-button-links-react.es.js",
   "exports": {
     ".": {
+      "types": "./dist/main.d.ts",
       "import": "./dist/share-button-links-react.es.js",
-      "require": "./dist/share-button-links-react.umd.js"
+      "require": "./dist/share-button-links-react.umd.js",
+      "default": "./dist/share-button-links-react.es.js"
     },
+    "./main.css": "./dist/share-button-links-react.css",
+    "./main.scss": "./dist/share-button-links-react.scss",
     "./dist/share-button-links-react.css": {
       "import": "./dist/share-button-links-react.css",
       "require": "./dist/share-button-links-react.css"
